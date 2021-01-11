@@ -1,0 +1,45 @@
+baseURL = "https://mcintireevan.github.io/blog"
+languageCode = "en-us"
+title = "\"Stories About Math\""
+theme = ["hugo-dynamic-tabs", "archie"]
+copyright = "© Evan McIntire"
+# Code Highlight
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+paginate=3 # articles per page
+
+[params]
+	mode="auto" # color-mode → light,dark or auto
+	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
+	subtitle = "Non-rigorous posts about Math (and sometimes other topics)"
+
+# Social Tags
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/mcintireevan"
+
+# Main menu Items
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
