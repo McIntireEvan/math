@@ -3,6 +3,9 @@ languageCode = "en-us"
 title = "\"Stories About Math\""
 theme = ["hugo-dynamic-tabs", "archie"]
 copyright = "© Evan McIntire"
+
+canonifyURLs = true
+
 # Code Highlight
 pygmentsstyle = "monokai"
 pygmentscodefences = true

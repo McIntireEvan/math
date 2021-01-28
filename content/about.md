@@ -3,10 +3,6 @@ title: About
 date: 2021-01-11
 ---
 
-Hi! In the words of one of my favorite professors, I want to “tell stories” about math. It goes without saying that rigorous proofs are vital for a mathematician’s development. That said, I believe that having intuitive “stories” about these proofs and ideas can make things go a lot easier.
+Hi! This blog is mostly about Math, though I might touch on other subjects from time to time. My goal is to explore interesting subjects in "higher math", and present them in a more approachable way. In the words of one of my favorite professors, I want to "tell stories" about math. Having been through an undergrad in Math, I do think that proofs and exercises are essential to mastery of concepts. That said, rigourousness can often run counter to intuitive understanding, especially when communicating with people less familiar with the concepts.
 
-I want to help create intuition about these subjects, and create explanations that my non-mathematician friends can understand and appreciate.
-
-If anything I write is incorrect or misleading, let me know! Make an issue on Github or elsewhere.
-
-I plan on writing ~1 post per month.
+If anything I write is incorrect or misleading, let me know! Make an issue on Github or elsewhere. I plan on writing ~1 post per month, but don't currently have an exact timetable. 

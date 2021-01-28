@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Geometry and Metric Spaces - &#34;Stories About Math&#34;</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:description" content="" />
+	<meta name="twitter:description" content="" />
+	<meta name="description" content="" />
+	<meta name="description" content="" />
+
+	<meta property="og:title" content="Geometry and Metric Spaces | &#34;Stories About Math&#34;" />
+	<meta name="twitter:title" content="Geometry and Metric Spaces | &#34;Stories About Math&#34;" />
+
+	<meta property="og:image" content=""/>
+	<meta itemprop="name" content="Geometry and Metric Spaces | &#34;Stories About Math&#34;" />
+	<meta name="application-name" content="Geometry and Metric Spaces | &#34;Stories About Math&#34;" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:title" content="Geometry and Metric Spaces" />
+<meta property="og:description" content="In my senior year of college, I took a course on Euclidean and non-Euclidean Geometry.1 Euclidean Geometry was codified by the Greek mathematician Euclid, in his book Elements. It&rsquo;s likely what you think of when you think about Geometry. In this blog post I&rsquo;ll look at what happens if we replace a key part of this geometry we&rsquo;re used to. I&rsquo;ll also touch on a generalization that this exploration leads to, and some fun examples." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mcintireevan.github.io/blog/posts/spaces/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Geometry and Metric Spaces"/>
+<meta name="twitter:description" content="In my senior year of college, I took a course on Euclidean and non-Euclidean Geometry.1 Euclidean Geometry was codified by the Greek mathematician Euclid, in his book Elements. It&rsquo;s likely what you think of when you think about Geometry. In this blog post I&rsquo;ll look at what happens if we replace a key part of this geometry we&rsquo;re used to. I&rsquo;ll also touch on a generalization that this exploration leads to, and some fun examples."/>
+<script src="https://mcintireevan.github.io/blogjs/feather.min.js"></script>
+	
+	<link href="https://mcintireevan.github.io/blogcss/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://mcintireevan.github.io/blogcss/main.css" /><link rel="stylesheet" type="text/css" href="https://mcintireevan.github.io/blogcss/dark.css" media="(prefers-color-scheme: dark)" />
+	
+	
+
+	<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
+<link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<style>
+		.tab-pane:not(.active) {
+			display: none !important;
+		}
+	</style>
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://mcintireevan.github.io/blog">&#34;Stories About Math&#34;</a>
+	</div>
+	<nav>
+		
+		<a href="https://mcintireevan.github.io/blog/">Home</a>
+		
+		<a href="https://mcintireevan.github.io/blog/posts">All posts</a>
+		
+		<a href="https://mcintireevan.github.io/blog/about">About</a>
+		
+		<a href="https://mcintireevan.github.io/blog/tags">Tags</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Geometry and Metric Spaces</h1>
+			<div class="meta">Posted on Jan 1, 0001</div>
+		</div>
+		
+
+		<section class="body">
+			<p>In my senior year of college, I took a course on Euclidean and non-Euclidean Geometry.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> Euclidean Geometry was codified by the Greek mathematician Euclid, in his book <strong>Elements</strong>. It&rsquo;s likely what you think of when you think about Geometry. In this blog post I&rsquo;ll look at what happens if we replace a key part of this geometry we&rsquo;re used to. I&rsquo;ll also touch on a generalization that this exploration leads to, and some fun examples.</p>
+<h1 id="euclidean-geometry">Euclidean Geometry</h1>
+<p>Euclid defines a few axioms<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> that serve as the base of his Geometry. We&rsquo;ll focus on one in particular, which has come to be known as the &ldquo;Parallel Posulate&rdquo;.</p>
+<blockquote>
+<p>If a line segment intersects two straight lines forming two interior angles on the same side that sum to less than two right angles, then the two lines, if extended indefinitely, meet on that side on which the angles sum to less than two right angles.</p>
+</blockquote>
+<p>The wording can be a bit tricky, but modern mathematicians have come up with different, equivalent<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> phrasings. I like <strong>Playfair&rsquo;s axiom</strong>, which reads</p>
+<blockquote>
+<p>In a plane, given a line and a point not on it, at most<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> one line parallel to the given line can be drawn through the point.</p>
+</blockquote>
+<p>This is a lot simpler, and we can visualize it pretty easily.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link active" id="nav-1" data-toggle="tab" href="#tab11" role="tab"
+		   aria-controls="nav-home" aria-selected="true">Image</a>
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link" id="nav-1" data-toggle="tab" href="#tab12" role="tab"
+		   aria-controls="nav-home" aria-selected="false">Sage</a>
+
+		
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="1">
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade show active" type="" id="tab11" role="tabpanel" aria-labelledby="nav-tabName1">
+
+	<img src="https://mcintireevan.github.io/blog/images/spaces/playfair.png" alt="Visualization of parallel lines and a point">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="tab12" role="tabpanel" aria-labelledby="nav-tabName2">
+
+	
+	
+
+<div class="sage">
+  <script type="text/x-sage">
+x = line([(0, 0), (5, 5)])
+x += line([(0, 1), (5, 6)], rgbcolor=(1, 0, 0))
+x += point([(1, 2)], rgbcolor=(0, 1, 0))
+x 
+  </script>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+<p>What happens if we throw away this postulate and replace it with something else?</p>
+<h2 id="elliptical-geometry">Elliptical Geometry</h2>
+<p>Suppose we said that <strong>zero</strong> parallel lines exist<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>, or to match Playfair&rsquo;s langugage,</p>
+<blockquote>
+<p>In a plane, given a line <em>l</em> and a point <em>p</em> not on it, all lines through <em>p</em> intersect <em>l</em></p>
+</blockquote>
+<p>What would such a space look like? I&rsquo;d encourage pondering this for awhile, and sketching some examples.</p>
+<p>Luckily, we already know a great example of such a space. Consider the surface of a sphere, and the following definition as a &ldquo;line&rdquo; on this surface:</p>
+<blockquote>
+<p>A <strong>Great Circle</strong> is the largest circle that can be drawn on a given sphere.</p>
+</blockquote>
+<p>Probably the best known example of a great circle is the Earth&rsquo;s equator.</p>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link active" id="nav-2" data-toggle="tab" href="#tab21" role="tab"
+		   aria-controls="nav-home" aria-selected="true">Image</a>
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link" id="nav-2" data-toggle="tab" href="#tab22" role="tab"
+		   aria-controls="nav-home" aria-selected="false">Sage</a>
+
+		
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="2">
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade show active" type="" id="tab21" role="tabpanel" aria-labelledby="nav-tabName1">
+
+	<img src="https://mcintireevan.github.io/blog/images/spaces/equator.png" alt="Visualization of an equator on a sphere">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="tab22" role="tabpanel" aria-labelledby="nav-tabName2">
+
+	
+	
+
+<div class="sage">
+  <script type="text/x-sage">
+x = sphere((0,0,0),1,color='red')
+x += circle((0, 0), 1.01, color='blue', thickness=2)
+x
+  </script>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+<p>GREAT CIRCLE AS A LINE, PROOF THAT NO PARALLEL LINES</p>
+<p>So now we have a space where parallel lines don&rsquo;t exist, and it&rsquo;s pretty easy to visualize.</p>
+<p>People say that this space has &ldquo;positive curvature&rdquo;, and a result is when we map flat stuff onto it it gets streched out</p>
+<h2 id="hyperbolic-geometry">Hyperbolic Geometry</h2>
+<p>How about the case where we have more than one parallel line?</p>
+<p>hyperboloid, neg curvature</p>
+<h1 id="generalizing-geometry">Generalizing Geometry</h1>
+<p>We&rsquo;ve taken a look at how changing the axioms can change the properties of the space we&rsquo;re dealing with. My next questions were along the lines of &ldquo;Is there a generalization? How do these examples fit into that generalization? What other interesting examples are there?&quot;<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>. Let&rsquo;s answer these!</p>
+<h2 id="is-there-a-generalization">&ldquo;Is there a generalization?&rdquo;</h2>
+<p>Yes!</p>
+<p>A <strong>Metric Space</strong> is an object with two parts. First, a set $M$. Usually, this will be a set of vectors, but it could also comprised of functions or even strings.</p>
+<p>Second, we need a <em>metric</em> $d(a, b): M \times M \rightarrow \mathcal{R}$, or a &ldquo;distance&rdquo; that we can use to compare items from these sets. This metric has to follow a few axioms:</p>
+<ol>
+<li>$d(x, y) = 0 \iff x = y$</li>
+<li>$d(x, y) = d(y, x)$</li>
+<li>$d(x, z) \leq d(x, y) + d(y, z)$</li>
+</ol>
+<p>In plain English, that is</p>
+<ol>
+<li>A point has distance 0 from itself.</li>
+<li>Two points have the same distance from each other.</li>
+<li>A direct path will always have the shortest distance. This expression is also known as the Triangle Inequality.</li>
+</ol>
+<p>These are all reasonable requirements for a distance function, and it&rsquo;s not too hard to show that normal Euclidean distance ($d_e (a, b) = \sqrt{(a_x - b_x)^2 + (a_y - b_y)^2}$ in the 2d plane) follows all these rules. Try it!</p>
+<p>From these axioms, we can derive that $d(x, y) \geq 0$ in just a few steps. I also recommend that you try showing this!</p>
+<h2 id="how-do-these-examples-fit-into-that-generalization">&ldquo;How do these examples fit into that generalization?&rdquo;</h2>
+<p>The metrics for elliptic and hyperbolic geometry were more complicated that I&rsquo;d have liked them to be. Either way, let&rsquo;s take a look by thinking about what a distance <em>should</em> look like for these spaces, and how their metrics stack up. I won&rsquo;t be deriving them, but will provide links to derivations I found good.</p>
+<h3 id="elliptic-metric">Elliptic Metric</h3>
+<p>What is &ldquo;distance&rdquo; on a sphere? WORDS but it&rsquo;s going along the surface. Look at arc, calculate it out, bingo bango done.</p>
+<p>$$d_S(p,q)=~\text{min}\left{2\arctan\left(\left|\frac{q - p}{1+\overline{p}q}\right|\right), 2\arctan\left(\left|\frac{1+\overline{p}q}{q-p}\right|\right)\right}$$</p>
+<p>What?</p>
+<h3 id="hyperbolic-metric">Hyperbolic Metric</h3>
+<p>What does distance look like in hyperbolic geometry? If we recall our visualization of hyperbolic space, then we</p>
+<h2 id="what-other-interesting-examples-are-there">&ldquo;What other interesting examples are there?&rdquo;</h2>
+<p>Back to fun stuff!</p>
+<h3 id="levenshtein-distance">Levenshtein Distance</h3>
+<h3 id="taxicab--manhattan-geometry">Taxicab / Manhattan Geometry</h3>
+<h3 id="post-office-geometry">Post Office Geometry</h3>
+<h3 id="chebyshev-geometry">Chebyshev Geometry</h3>
+<h1 id="so-what">So what?</h1>
+<h1 id="example-tab--sage">Example Tab / Sage</h1>
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link active" id="nav-1" data-toggle="tab" href="#tab11" role="tab"
+		   aria-controls="nav-home" aria-selected="true">Image</a>
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link" id="nav-1" data-toggle="tab" href="#tab12" role="tab"
+		   aria-controls="nav-home" aria-selected="false">Sage</a>
+
+		
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="1">
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade show active" type="" id="tab11" role="tabpanel" aria-labelledby="nav-tabName1">
+
+	3
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="tab12" role="tabpanel" aria-labelledby="nav-tabName2">
+
+	
+	
+
+<div class="sage">
+  <script type="text/x-sage">1+2</script>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+<h1 id="references-etc">References, etc.</h1>
+<h1 id="footnotes">Footnotes</h1>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>We followed &ldquo;The Four Pillars of Geometry&rdquo; by John Stillwell. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Euclid defines 5 axioms, though by modern standards they&rsquo;re imprecise and incomplete. Still, they&rsquo;re good enough for our uses. See <a href="https://en.wikipedia.org/wiki/Euclidean_geometry#Axioms">https://en.wikipedia.org/wiki/Euclidean_geometry#Axioms</a>. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>Equivalent only when taken together with Euclid&rsquo;s other axioms (which together form &ldquo;Neutral Geometry&rdquo;). <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>In Euclidean Geometry, this turns out to be &ldquo;exactly one&rdquo;, since from the other axioms we can prove that a parallel line exists. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>If we say this, we actually have to make some changes to the other axioms to have consistent definitions. See <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>In an earlier version of this post, I didn&rsquo;t include any details about changing the parallel postulate. This was very unsatisfying. <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/mcintireevan" title="GitHub"><i data-feather="github"></i></a>|⚡️
+	2021  © Evan McIntire |  <a href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+</footer><script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
