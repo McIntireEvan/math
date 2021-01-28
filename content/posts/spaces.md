@@ -72,15 +72,17 @@ x
 {{< /tabs >}}
 
 
-GREAT CIRCLE AS A LINE, PROOF THAT NO PARALLEL LINES 
+To prove that this space fulfills the stated axiom, we need to simply pick a point _p_ on this sphere, and prove that any great circle through it must cross through the great circle we picked - in this case, our equator. Intuitively, you might see that if you want to do a full rotation around, you'll have to cross the equator to get the needed length for the great spehere.
 
 So now we have a space where parallel lines don't exist, and it's pretty easy to visualize. 
 
-People say that this space has "positive curvature", and a result is when we map flat stuff onto it it gets streched out 
+Consider the triangle, and real world examples in plane paths.
+
+When we put map stuff onto it, it bulges out, so pos curv
 
 ## Hyperbolic Geometry
 
-How about the case where we have more than one parallel line?
+How about the case where we have more than one parallel line? Admittedly, this is trickier
 
 hyperboloid, neg curvature 
 
